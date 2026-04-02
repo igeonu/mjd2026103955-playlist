@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        h1 {
+            color :#FFFFFF
+        }
+
+        h2 {
+            color : #888888
+        }
+
+        body {
+            background-color : #000000
+        }
+
+        section {
+            background-color : #F0E68C
+        }
+
+        body {
+            background-color : #666666
+        }
+
+        p {
+            color: #242424
+        }
+
+    </style>
+
+    <title>앨범 소개</title>
+
+</head>
+
+<body>
+
+    <header id="album-header">
+
+        <p class="representative-song"></p>
+
+        <h1>Fall Out Boy - The Last Of The Real Ones</h1>
+
+        <p class="subtitle">광활한 우주 속 몽환적인 분위기의 노래</p>
+
+    </header>
+
+
+
+    <section class="lyrics-section">
+
+        <h2>듣기 좋은 파트</h2>
+
+        <div class="lyrics-box">
+
+            <p>I'm here in search of your glory</p>
+
+            <p>[난 여기 네 영광을 찾으러 왔어]</p>
+
+            <p>There's been a million before me</p>
+
+            <p>[항상 곁에 머무는]</p>
+
+            <p>That ultra-kind of love</p>
+
+            <p>[절대로 떠날수 없는 그런 사랑]</p>
+
+            <p>You never walk away from</p>
+
+            <p>[절대로 떠날수 없는 그런 사랑]</p>
+
+            <p class="highlight">You're just the last of the real ones</p>
+
+            <p class="highlight">[넌 마지막으로 남은 진짜배기니까]</p>
+
+
+        </div>
+
+    </section>
+
+
+
+    <section class="info-section">
+
+        <h2>뒤에 나올 다른 몽환적인 곡들에 대하여</h2>
+
+        <ul id="charm-list">
+
+            <li>몽환적이면서도 신나는 노래도 있는</li>
+
+            <li>우주에 관련된 주제는 아니지만 우주 배경과 어울리는</li>
+
+            <li>듣기 좋은 목소리의 음악과 중독되는 가사들</li>
+
+        </ul>
+
+    </section>
+
+
+
+    <section class="track-section">
+
+        <h2>추천 플레이리스트</h2>
+
+        <table border ="6" id="track-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>Track</th>
+
+                    <th>곡명</th>
+
+                    <th>Play Time</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+
+                    <td>01</td>
+
+                    <td>OneRepublic - Counting Stars</td>
+
+                    <td>4 : 43</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>02</td>
+
+                    <td>EEEAAAOOO</td>
+
+                    <td>2 : 44</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>03</td>
+
+                    <td>Lukas Graham - 7 Years</td>
+
+                    <td>3 : 53</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>04</td>
+
+                    <td>Eve - 행성 루프[惑星ループ]</td>
+
+                    <td>3 : 27</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>05</td>
+
+                    <td>Taron Egerton - A Sky Full of Stars</td>
+
+                    <td>3 : 26</td>
+
+                </tr>
+
+                <tr>
+
+                    <td>06</td>
+
+                    <td>The Chainsmokers - Something Just Like This</td>
+
+                    <td>4 : 00</td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+
+
+    <footer id="album-footer">
+
+        <button class="listen-btn">전곡 스밍하러 가기</button>
+
+    </footer>
+
+</body>
+
+</html>
