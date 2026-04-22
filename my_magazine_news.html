@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나만의 마법 매거진</title>
+    <style>
+        :root {
+            --bg-color: #f4f4f0;
+            --text-color: #222;
+            --point-color: #e11d48;
+            --border-color: #333;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Pretendard', 'Georgia', serif; background-color: var(--bg-color); color: var(--text-color); padding: 20px; }
+
+         /* =========================================
+           [실습 1] CSS Grid 메인 레이아웃 만들기
+           ========================================= */
+        .magazine-layout {
+            max-width: 1200px;
+            margin: 0 auto;
+            border: 4px solid var(--border-color);
+            padding: 20px;
+            
+            /* TODO 1: 여기를 Grid로 만들고, 가로를 3등분(1fr 2fr 1fr) 하세요. 간격은 20px! */
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 20px;
+        }
+
+        header {
+            /* TODO 2: 헤더가 첫 칸부터 끝 칸까지 전체 너비를 차지하게 하세요. */
+            grid-column: 1 / -1;
+
+            text-align: center;
+            border-bottom: 4px solid var(--border-color);
+            padding-bottom: 20px; margin-bottom: 20px;
+        }
+        header h1 { font-size: 3rem; font-weight: 900; }
+        
+        aside { padding: 10px; }
+        main { border-left: 1px solid var(--border-color); border-right: 1px solid var(--border-color); padding: 0 20px; }
+
+        /* =========================================
+           [실습 2] 내부 기사 카드 Grid 배열
+           ========================================= */
+        .article-grid {
+            /* TODO 3: 메인 영역 내부 기사들도 Grid로 만드세요 (1fr 1fr 2단 구성, 간격 15px) */
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        /* 기사 카드 스타일 및 Transition (마우스 오버 효과) */
+        .magic-card {
+            border-bottom: 1px solid #ccc; padding-bottom: 15px; overflow: hidden;
+            /* TODO 4: 마우스를 올렸을 때 부드럽게 위로 살짝 떠오르도록 Transition과 transform을 추가해보세요. */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .magic-card img { width: 100%; height: 180px; object-fit: cover; }
+
+        /* =========================================
+           [실습 3] @keyframes 애니메이션 만들기
+           ========================================= */
+        .ticker-wrap { width: 100%; overflow: hidden; background: var(--border-color); color: #fff; padding: 10px 0; margin-bottom: 20px; }
+        .ticker-move {
+            display: inline-block; white-space: nowrap;
+            /* TODO 5: 아래 만든 slide-left 애니메이션을 10초 동안 무한 반복(infinite) 선형(linear)으로 적용하세요. */
+            animation: slide-left 10s linear infinite;
+        }
+        
+        /* 텍스트가 흘러가는 애니메이션 */
+        @keyframes slide-left {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* NEW 뱃지 깜빡임 애니메이션 */
+        .badge-new {
+            display: inline-block; background: var(--point-color); color: white; padding: 2px 8px; font-size: 0.8rem; border-radius: 12px; margin-bottom: 10px;
+            /* TODO 6: 여기에 직접 새로운 @keyframes를 만들어 적용해보세요! (예: 둥둥 뜨기, 깜빡이기) */
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes slide-left {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.1); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* 반응형 모바일 설정 */
+        @media (max-width: 800px) {
+            .magazine-layout { grid-template-columns: 1fr; }
+            header { grid-column: 1; }
+            main { border: none; padding: 0; margin: 20px 0; }
+            .article-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="magazine-layout">
+        <header>
+            <h1>나의 MBTI인 INTP-A에 대하여</h1>
+            <p>Vol. 1 | 2026. 04. 22 | 나의 MBTI, INTP-Assertive(자기 확신형)에 관련된 뉴스 모음</p>
+        </header>
+
+        <!-- 흘러가는 속보 -->
+        <div class="ticker-wrap" style="grid-column: 1 / -1;">
+            <div class="ticker-move">🔥[그나마 있는 최근뉴스] 2025.05.02 14:30 이종섭 기자 “호기심 많은 INTP는 사철란·박쥐란”···내 MBTI에 맞는 반려식물은? https://www.khan.co.kr/article/202505021019001#ENT🔥</div>
+        </div>
+
+        <aside>
+            <h2 style="border-bottom: 2px solid var(--point-color); margin-bottom: 15px;">Profile</h2>
+            <div style="background: #fff; padding: 15px; border: 1px solid #ddd;">
+                <h4>나의 MBTI의 구체적인 정보 및 자기 소개</h4>
+                <p style="font-size: 0.9rem; color: #666;">안녕하세요. 83%의 내향형, 63%의 직관형, 73%의 사고형, 94%의 탐구형, 56%의 확신형인 AI게임소프트웨어 학과 26학번 이건우 입니다.</p>
+            </div>
+        </aside>
+
+        <main>
+            <div class="article-grid">
+                <!-- 기사 카드 1 -->
+                <article class="magic-card">
+                    <span class="badge-new">NEW</span>
+                    <img src="https://nimage.newsway.co.kr/photo/2023/08/01/20230801000004_0700.png" alt="기사 썸네일">
+                    <h3 style="font-size: 1.1rem; margin: 10px 0;">'논리적 사색가' INTP를 위한 맞춤형 직업 8선+현직 연봉 정리 (이성인 기자 2023.08.01 08:25 )</h3>
+                    <p style="font-size: 0.9rem; color: #555;">각 MBTI 성격 유형에 적합한 직업이 뭔지, 전망은 어느정도인지 등을, 'MBTI&머니'를 통해 알려주었으며, "게임프로그래머, 심리학연구원, 광고영상감독, 교통계획·설계가" 등 8개의 INTP 유형의 맞춤형 직업을 분석한 뉴스이다. https://www.newsway.co.kr/news/view?ud=2023080108251076147</p>
+                </article>
+
+                <!-- 기사 카드 2 -->
+                <article class="magic-card">
+                    <span class="badge-new" style="background:#3b82f6;">HOT</span>
+                    <img src="https://www.news1.kr/_next/image?url=https%3A%2F%2Fi3n.news1.kr%2Fsystem%2Fphotos%2F2024%2F9%2F23%2F6889431%2Fhigh.jpg&w=750&q=75" alt="기사 썸네일">
+                    <h3 style="font-size: 1.1rem; margin: 10px 0;">"INTP, 가장 많았다"…MBTI로 인구감소지역 분석 (이설 기자 2024.09.23 오후 12:00)</h3>
+                    <p style="font-size: 0.9rem; color: #555;">행정안전부는 건축공간연구원과 협력해 인구감소지역으로 지정된 89개 지자체가 통계와 지역 특성에 기반한 맞춤형 대책을 수립하기 위해 사람의 심리를 분석하는 진단도구인 MBTI를 인구감소지역 특성으로 적용한 '지역특성 MBTI'를 각 지역에 배포 했다는 내용을 담아낸 뉴스이다. https://www.news1.kr/local/moi/5547616</p>
+                </article>
+            </div>
+        </main>
+
+        <aside>
+            <h2 style="border-bottom: 2px solid var(--point-color); margin-bottom: 15px;">Ad</h2>
+            <div style="background: #333; color: #fff; height: 250px; display: flex; align-items: center; justify-content: center; text-align: center;">
+                <p>배너 광고<br>영역</p>
+            </div>
+        </aside>
+    </div>
+
+</body>
+</html>
